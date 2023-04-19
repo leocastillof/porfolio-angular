@@ -11,6 +11,7 @@ import { ToolsComponent } from './components/tools/tools.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { PageNotFoundComponentComponent } from './components/page-not-found-component/page-not-found-component.component';
 import { NavmenuComponent } from './components/navmenu/navmenu.component';
+import { AudioComponent } from './components/audio/audio.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { NavmenuComponent } from './components/navmenu/navmenu.component';
     ToolsComponent,
     ContactComponent,
     PageNotFoundComponentComponent,
-    NavmenuComponent
+    NavmenuComponent,
+    AudioComponent
   ],
   imports: [
     BrowserModule,
