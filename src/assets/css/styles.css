@@ -153,14 +153,14 @@ header{
 .sound-cloud{
     font-size: 1.2rem;
     margin: 7px;
-    color: #f50057;
+    color: #a51515;
 }
 .on-off{
     cursor: pointer;
     margin-left: 5px;
 }
 #off{
-    color: #f50057;
+    color: #a51515;
 }
 #on{
     display: none;
