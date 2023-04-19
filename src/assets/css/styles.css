@@ -13,7 +13,9 @@ body, html {
 body{
     font-family: sans-serif;
     color: rgb(255, 255, 255);
-    background: rgb(29, 29, 29);
+    background: linear-gradient(130deg,#0f0f0f, #333232, #a51515);
+    background-size: 400% 400%;
+    animation: gradientShift 5s ease infinite;
     overflow-x: hidden;
 }
 header{
@@ -26,6 +28,38 @@ header{
     position: fixed;
     z-index: 2;
 }
+
+@-webkit-keyframes gradientShift {
+    0% {
+        background-position: 50% 0%
+    }
+    50% {
+        background-position: 50% 100%
+    }
+    100% {
+        background-position: 50% 0%
+    }
+}
+@keyframes gradientShift {
+    0% {
+        background-position: 50% 0%
+    }
+    50% {
+        background-position: 50% 100%
+    }
+    100% {
+        background-position: 50% 0%
+    }
+}
+
+.trail 
+{
+    position: absolute;
+    height: 6px; width: 6px;
+    border-radius: 3px;
+    background: #fdbf2d;
+}
+
 .title_1 {
     animation: Color 4s linear infinite;
     -webkit-animation: Color 4s ease-in-out infinite;
@@ -179,12 +213,21 @@ header{
     display: grid;
     place-items: center;
     text-decoration: none;
-    -webkit-animation: pulse 1s infinite;
-    animation: pulse 1s infinite;
 }
 .logo img{
-    width: 45px;
-    height: auto;
+    width: 6rem;
+    height: 6rem;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 50%;
+    border: 2px solid #fdbf2d;
+    position: relative;
+    top: 0;
+    transition: 250ms top ease-in-out;
+}
+.logo img:hover{
+    top: -1rem;
+	z-index: 99;
 }
 .logo span{
     font-family: 'Poppins', sans-serif;
@@ -198,31 +241,6 @@ header{
     font-size: 12px;
     font-family: 'Open Sans';
 }
-
-@keyframes pulse {
-    0% {
-        -webkit-transform: scale(1);
-        -moz-transform: scale(1);
-        -ms-transform: scale(1);
-        -o-transform: scale(1);
-        transform: scale(1)
-    }
-    10% {
-        -webkit-transform: scale(1.1);
-        -moz-transform: scale(1.1);
-        -ms-transform: scale(1.1);
-        -o-transform: scale(1.1);
-        transform: scale(1.1)
-    }
-    20% {
-        -webkit-transform: scale(1);
-        -moz-transform: scale(1);
-        -ms-transform: scale(1);
-        -o-transform: scale(1);
-        transform: scale(1)
-    }
-  }
-
 
 /* nav section starts here */
 
@@ -423,7 +441,6 @@ a
   .container .box:hover {
     transform: rotateY(0deg) scale(1.25);
     z-index: 1;
-    box-shadow: 0 25px 40px rgba(0,0,0,0.5);
   }
   .container .box .imgBx {
     position: absolute;
