@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 
+declare var TagCanvas: any;
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -8,10 +10,28 @@ import { Component } from '@angular/core';
 export class HomeComponent {
   title = 'porfolio';
 
+  constructor() { }
+
   ngOnInit() {
     this.registerMouseMoveEvent();
   }
 
+  ngAfterViewInit() {
+    let canvas = document.getElementById('myCanvas');
+    let tags = document.getElementById('tags');
+
+    if (canvas && tags) {
+      TagCanvas.Start('myCanvas', 'tags', {
+        textColour: '#08fdd8',
+        outlineColour: 'transparent',
+        reverse: true,
+        depth: 0.8,
+        maxSpeed: 0.05,
+        weight: true,
+      });
+    }
+  }
+  
   registerMouseMoveEvent() {
     // Mouse Trails
     const section_home = document.querySelector('.section-home') as HTMLElement; // Anotación de tipo explícita para section_home
