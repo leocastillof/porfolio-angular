@@ -682,7 +682,7 @@ a
 
 /* part 3 section starts here */
 
-#section-about{
+.section-about{
     padding-left: 1.5rem;
     margin-top: 100px;
     display: flex;
@@ -842,7 +842,7 @@ a
     }
 
     /* media query for about section */
-    #section-about{
+    .section-about{
         flex-direction: row;
         padding-left: 17rem;
     }
