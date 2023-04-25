@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
 import { SkillsComponent } from './components/skills/skills.component';
-import { ToolsComponent } from './components/tools/tools.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { PageNotFoundComponentComponent } from './components/page-not-found-component/page-not-found-component.component';
 import { NavmenuComponent } from './components/navmenu/navmenu.component';
@@ -18,7 +17,6 @@ import { AudioComponent } from './components/audio/audio.component';
     HomeComponent,
     AboutComponent,
     SkillsComponent,
-    ToolsComponent,
     ContactComponent,
     PageNotFoundComponentComponent,
     NavmenuComponent,

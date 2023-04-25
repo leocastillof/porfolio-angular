@@ -11,7 +11,7 @@ body, html {
     overflow-x: hidden;
     }
 body{
-    font-family: sans-serif;
+    font-family: 'Poppins', sans-serif;
     color: rgb(255, 255, 255);
     background: linear-gradient(130deg,#0f0f0f, #333232, #a51515);
     background-size: 400% 400%;
@@ -141,6 +141,105 @@ header{
       color: #ac92ec;
     }
   }
+
+
+  .page-skills {
+    overflow: hidden;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between
+}
+
+.page-skills .text-zone {
+    width: 50%;
+    padding-right: 5rem
+}
+
+.page-skills .text-zone+div {
+    padding-right: 5rem;
+    width: 50%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column
+}
+
+.page-skills .charts {
+    opacity: 0
+}
+
+
+.chart {
+    margin-bottom: 2rem
+}
+
+.chart span {
+    font-size: 18px;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 7px;
+    display: block
+}
+
+.chart footer {
+    background-color: #373737;
+    height: 2px
+}
+
+.chart footer div {
+    width: 0;
+    height: 100%;
+    -webkit-transition: width 1.3s ease-out;
+    -o-transition: width 1.3s ease-out;
+    transition: width 1.3s ease-out
+}
+.work-row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    margin-top: 5rem
+}
+
+.work-box {
+    width: 48%;
+    background: #2a2a2a;
+    padding: 3rem
+}
+
+.work-box header {
+    font-family: 'La Belle Aurore', cursive;
+    font-size: 2.6rem;
+    line-height: 2rem;
+    margin-bottom: 2rem
+}
+
+.work-box section {
+    font-size: 1.6rem;
+    color: #ababab;
+    margin-bottom: 1rem
+}
+
+.work-box section time {
+    display: block;
+    font-size: 1.2rem
+}
+
+.work-box footer {
+    font-size: 1.6rem;
+    color: #ababab;
+    line-height: 1.8rem
+}
 
 #sound{
     padding: 7px;
@@ -690,10 +789,11 @@ a
     justify-content: space-between;
     align-items: center;
     position: relative;
+    
 }
 
 .section-about-2{
-    margin-top: 10%;
+    margin-top: 5%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -702,7 +802,10 @@ a
 }
 
 .text-zone3 p{
+    padding-left: 10%;
+    width: 80%;
     margin-bottom: 15px;
+    font-size: 16px;
     line-height: 1.5rem;
 }
 .tech{

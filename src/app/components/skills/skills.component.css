@@ -1,9 +1,11 @@
 .text-zone-h2
 {
+    padding-left: 10%;
+    width: 80%;
     font-weight: 400;
-        margin-top: 0;
-        left: -10px;
-        font-size: 5.3rem;
-        line-height: 85px;
-        letter-spacing: -6px;
+    margin-top: 0;
+    left: -10px;
+    font-size: 3.3rem;
+    line-height: 85px;
+    letter-spacing: -6px;
 }
