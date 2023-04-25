@@ -13,7 +13,7 @@ body, html {
 body{
     font-family: 'Poppins', sans-serif;
     color: rgb(255, 255, 255);
-    background: linear-gradient(130deg,#0f0f0f, #333232, #a51515);
+    background: linear-gradient(130deg,#0f0f0f, #7a7a7a, #00849b);
     background-size: 400% 400%;
     animation: gradientShift 5s ease infinite;
     overflow-x: hidden;
@@ -197,10 +197,22 @@ header{
 .chart footer div {
     width: 0;
     height: 100%;
-    -webkit-transition: width 1.3s ease-out;
-    -o-transition: width 1.3s ease-out;
-    transition: width 1.3s ease-out
+    animation: dropdown 4s ease-in-out;
 }
+
+@keyframes dropdown {
+    0% {
+      opacity: 0;
+    }
+    
+    50% {
+      opacity: 0.5;
+    }
+  
+    100% {
+      opacity: 1;
+    }
+  }
 .work-row {
     display: -webkit-box;
     display: -ms-flexbox;
