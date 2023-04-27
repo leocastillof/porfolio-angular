@@ -9,8 +9,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const on = document.getElementById("on");
     const myAudio = document.getElementById("myAudio");
 
-    off.addEventListener("click", () => soundTrack("off"));
-    on.addEventListener("click", () => soundTrack("on"));
+    if (off || on) {
+        off.addEventListener("click", () => soundTrack("off"));
+        on.addEventListener("click", () => soundTrack("on"));
+    }
+
 
     const soundTrack = (soundState) => {
         if (soundState === "off") {

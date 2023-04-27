@@ -5,6 +5,7 @@ import { AboutComponent } from './components/about/about.component';
 import { SkillsComponent } from './components/skills/skills.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { PageNotFoundComponentComponent } from './components/page-not-found-component/page-not-found-component.component';
+import { LoginComponent } from './components/login/login.component';
 
 // Rutas de navegación
 const routes: Routes = [
@@ -13,7 +14,8 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'skills', component: SkillsComponent },
-  { path: '**', component: PageNotFoundComponentComponent },
+  { path: 'login', component: LoginComponent },
+  { path: '**', component: PageNotFoundComponentComponent }
 ];
 
 @NgModule({

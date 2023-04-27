@@ -11,6 +11,7 @@ import { PageNotFoundComponentComponent } from './components/page-not-found-comp
 import { NavmenuComponent } from './components/navmenu/navmenu.component';
 import { AudioComponent } from './components/audio/audio.component';
 import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { HttpClientModule } from '@angular/common/http';
     ContactComponent,
     PageNotFoundComponentComponent,
     NavmenuComponent,
-    AudioComponent
+    AudioComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
