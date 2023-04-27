@@ -10,6 +10,7 @@ import { ContactComponent } from './components/contact/contact.component';
 import { PageNotFoundComponentComponent } from './components/page-not-found-component/page-not-found-component.component';
 import { NavmenuComponent } from './components/navmenu/navmenu.component';
 import { AudioComponent } from './components/audio/audio.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { AudioComponent } from './components/audio/audio.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

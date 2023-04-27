@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { person } from 'src/app/model/person.module';
+import { PersonService } from 'src/app/service/person.service';
 
 @Component({
   selector: 'app-about',
@@ -7,11 +9,14 @@ import { Component } from '@angular/core';
 })
 export class AboutComponent {
 
+  person: person = new person("", "", "");
   title = 'porfolio';
-  constructor() { }
+
+  constructor(public personService: PersonService) { }
 
   ngOnInit() {
     this.registerMouseMoveEvent();
+    this.personService.getPerson().subscribe(data => {this.person = data})
   }
 
   registerMouseMoveEvent() {
