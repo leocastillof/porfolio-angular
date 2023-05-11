@@ -12,22 +12,54 @@
   <br />
   <h3>Iniciar sesión</h3>
   <br />
-  <div id="user">
-    <i class="fa-solid fa-user icon"></i>
-    <input type="text" placeholder="Correo electrónico" id="email" required />
-  </div>
-  <div id="pass">
-    <i class="fa-solid fa-lock icon"></i>
-    <input type="password" placeholder="Contraseña" id="password" required />
-    <p class="loginError" id="loginNotCorrect">
-      Correo electrónico o contraseña no válido
-    </p>
-  </div>
-  <a href="#" class="contact-button" style="margin: auto">
-    <div>
-      <span class="bg"></span>
-      <span class="base"></span>
-      <span class="text">Iniciar sesión</span>
+  <form #f="ngForm" (ngSubmit)="onLogin()" novalidate>
+    <div id="user">
+      <i class="fa-solid fa-user icon"></i>
+      <input
+        type="email"
+        placeholder="Nombre de usuario o correo"
+        id="username"
+        name="username"
+        [(ngModel)]="username"
+        required
+      />
     </div>
-  </a>
+    <div id="pass">
+      <i class="fa-solid fa-lock icon"></i>
+      <input
+        type="password"
+        placeholder="Contraseña"
+        id="password"
+        name="password"
+        [(ngModel)]="password"
+        required
+      />
+
+      <!-- Error Message -->
+      <p class="loginError" id="loginNotCorrect">
+        Correo electrónico o contraseña no válido
+      </p>
+
+      <!-- Forgot password
+        <p id="loginNotCorrect">¿Olvidó su contraseña?</p>
+       -->
+    </div>
+    <button
+      class="contact-button"
+      style="margin: auto; line-height: 40px"
+      type="submit"
+    >
+      <div>
+        <span class="bg"></span>
+        <span class="base"></span>
+        <span class="text">Iniciar sesión</span>
+      </div>
+    </button>
+
+    <div>
+      <p style="padding-bottom: 5%; margin-top: 5%">
+        ¿No tienes cuenta? <a href="#" style="margin-left: 0">¡Registrate!</a>
+      </p>
+    </div>
+  </form>
 </div>
