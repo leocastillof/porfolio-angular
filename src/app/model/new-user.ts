@@ -4,5 +4,4 @@ export class NewUser {
     email!: String;
     password!: String;
     authorities!: String[];
-    // Minuto 2:33:32
 }
