@@ -39,13 +39,32 @@
       </li>
     </ul>
 
-    <a routerLink="/login" class="contact-button" style="width: 80%">
+    <a
+      (click)="login()"
+      class="contact-button"
+      style="width: 80%"
+      *ngIf="!isLogged"
+    >
       <div>
         <span class="bg"></span>
         <span class="base"></span>
         <span class="text">Iniciar sesión</span>
       </div>
     </a>
+
+    <a
+      (click)="onLogOut()"
+      class="contact-button"
+      style="width: 80%"
+      *ngIf="isLogged"
+    >
+      <div>
+        <span class="bg"></span>
+        <span class="base"></span>
+        <span class="text">Cerrar sesión</span>
+      </div>
+    </a>
+
     <img
       src="assets/img/APLogo-20-20.png"
       alt="Argentina Programa"
