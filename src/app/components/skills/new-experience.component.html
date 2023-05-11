@@ -13,7 +13,7 @@
   <h3>Agregar experiencia</h3>
   <br />
   <form
-    (ngSubmit)="(onCreate)"
+    (ngSubmit)="onCreate()"
     novalidate
     #f="ngForm"
     style="padding-bottom: 15%"
@@ -40,11 +40,7 @@
         required
       />
     </div>
-    <button
-      class="contact-button"
-      style="margin: auto; line-height: 40px"
-      type="submit"
-    >
+    <button class="contact-button" style="margin: auto; line-height: 40px">
       <div>
         <span class="bg"></span>
         <span class="base"></span>
