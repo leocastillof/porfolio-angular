@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Experience } from 'src/app/model/experience';
+import { ServiceExperience } from 'src/app/service/service-experience.service';
+import { TokenService } from 'src/app/service/token.service';
 
 declare var TagCanvas: any;
 
@@ -7,13 +10,30 @@ declare var TagCanvas: any;
   templateUrl: './skills.component.html',
   styleUrls: ['./skills.component.css']
 })
-export class SkillsComponent {
+export class SkillsComponent implements OnInit{
+  exp: Experience[] = [];
   title = 'porfolio';
 
-  constructor() { }
+  constructor(private serviceExperience: ServiceExperience, private tokenService: TokenService) { }
 
-  ngOnInit() {
+  isLogged = false;
+
+  ngOnInit(): void {
     this.registerMouseMoveEvent();
+    this.loadExperience();
+    if(this.tokenService.getToken())
+    {
+      this.isLogged = true;
+    }
+    else
+    {
+      this.isLogged = false;
+    } 
+  }
+
+  loadExperience(): void
+  {
+    this.serviceExperience.list().subscribe(data => {this.exp = data;})
   }
 
   ngAfterViewInit() {

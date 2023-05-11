@@ -13,6 +13,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './components/login/login.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { InterceptorService } from './service/interceptor-service';
+import { NewExperienceComponent } from './components/skills/new-experience.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { InterceptorService } from './service/interceptor-service';
     PageNotFoundComponentComponent,
     NavmenuComponent,
     AudioComponent,
-    LoginComponent
+    LoginComponent,
+    NewExperienceComponent
   ],
   imports: [
     BrowserModule,

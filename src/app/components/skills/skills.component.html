@@ -8,6 +8,21 @@
       y <span class="title_1">Experiencia</span>
     </h2>
 
+    <div></div>
+
+    <div class="container">
+      <table>
+        <tbody>
+          <tr *ngFor="let Experience of exp">
+            <td>{{ Experience.nameE }}</td>
+            <td>{{ Experience.descriptionE }}</td>
+            <td>Editar</td>
+            <td>Borrar</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
     <div>
       <br />
       <div class="text-zone3">
