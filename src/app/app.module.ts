@@ -14,6 +14,7 @@ import { LoginComponent } from './components/login/login.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { InterceptorService } from './service/interceptor-service';
 import { NewExperienceComponent } from './components/skills/new-experience.component';
+import { EditExperienceComponent } from './components/skills/edit-experience.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { NewExperienceComponent } from './components/skills/new-experience.compo
     NavmenuComponent,
     AudioComponent,
     LoginComponent,
-    NewExperienceComponent
+    NewExperienceComponent,
+    EditExperienceComponent
   ],
   imports: [
     BrowserModule,

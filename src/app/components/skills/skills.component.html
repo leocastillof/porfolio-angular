@@ -8,34 +8,52 @@
       y <span class="title_1">Experiencia</span>
     </h2>
 
-    <button
-      routerLink="/new-experience"
-      *ngIf="isLogged"
-      class="contact-button"
-      style="margin: auto; line-height: 40px"
-      type="submit"
-    >
-      <div>
-        <span class="bg"></span>
-        <span class="base"></span>
-        <span class="text">Agregar experiencia</span>
-      </div>
-    </button>
+    <div>
+      <br />
+      <button
+        routerLink="/new-experience"
+        *ngIf="isLogged"
+        class="contact-button"
+        style="margin: auto; line-height: 40px"
+        type="submit"
+      >
+        <div>
+          <span class="bg"></span>
+          <span class="base"></span>
+          <span class="text">Agregar experiencia</span>
+        </div>
+      </button>
+      <br />
 
-    <div class="container">
-      <table>
-        <tbody>
-          <tr *ngFor="let Experience of exp">
-            <td>{{ Experience.nameE }}</td>
-            <td>{{ Experience.descriptionE }}</td>
-            <td>Editar</td>
-            <td>Borrar</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="containerr" style="display: contents; margin-top: 10%">
+        <table>
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Descripción</th>
+              <th *ngIf="isLogged"></th>
+              <th *ngIf="isLogged"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let Experience of exp">
+              <td>{{ Experience.nameE }}</td>
+              <td>{{ Experience.descriptionE }}</td>
+              <td *ngIf="isLogged">
+                <button routerLink="/edit-experience/{{ Experience.id }}">
+                  <i class="fa-solid fa-pen"></i> Editar
+                </button>
+              </td>
+              <td *ngIf="isLogged">
+                <button (click)="delete(Experience.id)"><i class="fa-solid fa-trash"></i> Borrar</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
 
-    <div>
+    <div style="margin-bottom: 10%">
       <br />
       <div class="text-zone3">
         <p class="aboutme">
@@ -108,7 +126,7 @@
   </div>
 </section>
 
-<section class="section-about-2">
+<section class="section-about-2" style="margin-top: -8%">
   <div class="skills-details" style="padding: 10%">
     <div class="chart">
       <span>HTML</span>

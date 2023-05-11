@@ -36,6 +36,19 @@ export class SkillsComponent implements OnInit{
     this.serviceExperience.list().subscribe(data => {this.exp = data;})
   }
 
+  delete(id?: number){
+    if(id != undefined)
+    {
+      this.serviceExperience.delete(id).subscribe(
+        data => {
+          this.loadExperience();
+        }, err => {
+          alert("No se pudo eliminar la experiencia");
+        }
+      )
+    }
+  }
+
   ngAfterViewInit() {
     let canvas = document.getElementById('myCanvas');
     let tags = document.getElementById('tags');
