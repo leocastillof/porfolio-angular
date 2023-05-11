@@ -1,1 +1,55 @@
-<p>new-experience works!</p>
+<script
+  src="https://kit.fontawesome.com/425273aaba.js"
+  crossorigin="anonymous"
+></script>
+<div id="blob"></div>
+<div id="blob2"></div>
+<div id="blob3"></div>
+<div id="box">
+  <a class="exitButton" href="#"><i class="fa-solid fa-xmark"></i></a>
+  <br />
+  <img src="assets/img/levelup.gif" height="200" />
+  <br />
+  <h3>Agregar experiencia</h3>
+  <br />
+  <form
+    (ngSubmit)="(onCreate)"
+    novalidate
+    #f="ngForm"
+    style="padding-bottom: 15%"
+  >
+    <div id="user">
+      <i class="fa-solid fa-briefcase icon"></i>
+      <input
+        type="text"
+        id="nameE"
+        name="nameE"
+        placeholder="Nombre de la empresa, emprendimiento o proyecto"
+        [(ngModel)]="nameE"
+        required
+      />
+    </div>
+    <div id="pass">
+      <i class="fa-solid fa-comment icon"></i>
+      <input
+        type="text"
+        id="descriptionE"
+        name="descriptionE"
+        placeholder="Descripción de la experiencia"
+        [(ngModel)]="descriptionE"
+        required
+      />
+    </div>
+    <button
+      class="contact-button"
+      style="margin: auto; line-height: 40px"
+      type="submit"
+    >
+      <div>
+        <span class="bg"></span>
+        <span class="base"></span>
+        <span class="text">Agregar</span>
+      </div>
+    </button>
+  </form>
+</div>

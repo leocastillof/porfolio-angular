@@ -12,7 +12,12 @@
   <br />
   <h3>Iniciar sesión</h3>
   <br />
-  <form #f="ngForm" (ngSubmit)="onLogin()" novalidate>
+  <form
+    #f="ngForm"
+    (ngSubmit)="onLogin()"
+    novalidate
+    style="padding-bottom: 15%"
+  >
     <div id="user">
       <i class="fa-solid fa-user icon"></i>
       <input

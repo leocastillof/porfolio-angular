@@ -8,7 +8,19 @@
       y <span class="title_1">Experiencia</span>
     </h2>
 
-    <div></div>
+    <button
+      routerLink="/new-experience"
+      *ngIf="isLogged"
+      class="contact-button"
+      style="margin: auto; line-height: 40px"
+      type="submit"
+    >
+      <div>
+        <span class="bg"></span>
+        <span class="base"></span>
+        <span class="text">Agregar experiencia</span>
+      </div>
+    </button>
 
     <div class="container">
       <table>
