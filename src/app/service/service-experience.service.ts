@@ -8,7 +8,7 @@ import { Experience } from '../model/experience';
 })
 export class ServiceExperience {
   // expURL = 'http://localhost:8080/exp/';
-  expURL = 'https://porfolio-backend-lnwc.onrender.com';
+  expURL = 'https://porfolio-backend-lnwc.onrender.com/exp/';
   
   constructor(private httpClient: HttpClient) { }
 
