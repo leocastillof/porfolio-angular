@@ -53,13 +53,20 @@
         <p class="aboutme">
           {{ Education.descriptionE }}
         </p>
+        <!-- HTML !-->
         <button
+          class="button-edit"
           *ngIf="isLogged"
-          routerLink="/edit-experience/{{ Education.id }}"
+          routerLink="/edit-education/{{ Education.id }}"
         >
           <i class="fa-solid fa-pen"></i> Editar
         </button>
-        <button *ngIf="isLogged" (click)="delete(Education.id)">
+        &nbsp;
+        <button
+          class="button-remove"
+          *ngIf="isLogged"
+          (click)="delete(Education.id)"
+        >
           <i class="fa-solid fa-trash"></i> Borrar
         </button>
       </div>
