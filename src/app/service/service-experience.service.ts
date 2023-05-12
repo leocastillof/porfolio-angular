@@ -7,8 +7,9 @@ import { Experience } from '../model/experience';
   providedIn: 'root'
 })
 export class ServiceExperience {
-  expURL = 'http://localhost:8080/exp/'
-
+  // expURL = 'http://localhost:8080/exp/';
+  expURL = 'https://porfolio-backend-lnwc.onrender.com';
+  
   constructor(private httpClient: HttpClient) { }
 
   public list(): Observable<Experience[]>{
