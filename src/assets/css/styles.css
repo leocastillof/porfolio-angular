@@ -13,7 +13,7 @@ body, html {
 body{
     font-family: 'Poppins', sans-serif;
     color: rgb(255, 255, 255);
-    background: linear-gradient(130deg,#0f0f0f, #7a7a7a, #00849b);
+    background: linear-gradient(130deg,#ff0000, #6c1717, #3a1616);
     height: 100vh;
     background-size: 400% 400%;
     animation: gradientShift 5s ease infinite;
