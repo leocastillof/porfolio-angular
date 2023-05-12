@@ -15,6 +15,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { InterceptorService } from './service/interceptor-service';
 import { NewExperienceComponent } from './components/skills/new-experience.component';
 import { EditExperienceComponent } from './components/skills/edit-experience.component';
+import { NewEducationComponent } from './components/about/new-education.component';
+import { EditEducationComponent } from './components/about/edit-education.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { EditExperienceComponent } from './components/skills/edit-experience.com
     AudioComponent,
     LoginComponent,
     NewExperienceComponent,
-    EditExperienceComponent
+    EditExperienceComponent,
+    NewEducationComponent,
+    EditEducationComponent
   ],
   imports: [
     BrowserModule,

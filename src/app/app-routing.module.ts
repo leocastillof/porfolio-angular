@@ -8,6 +8,8 @@ import { PageNotFoundComponentComponent } from './components/page-not-found-comp
 import { LoginComponent } from './components/login/login.component';
 import { NewExperienceComponent } from './components/skills/new-experience.component';
 import { EditExperienceComponent } from './components/skills/edit-experience.component';
+import { NewEducationComponent } from './components/about/new-education.component';
+import { EditEducationComponent } from './components/about/edit-education.component';
 
 // Rutas de navegación
 const routes: Routes = [
@@ -19,6 +21,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'new-experience', component: NewExperienceComponent },
   { path: 'edit-experience/:id', component: EditExperienceComponent },
+  { path: 'new-education', component: NewEducationComponent },
+  { path: 'edit-education/:id', component: EditEducationComponent },
   { path: '**', component: PageNotFoundComponentComponent }
 ];
 
