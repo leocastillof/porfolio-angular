@@ -32,7 +32,36 @@
   <section class="section-about">
     <div class="text-zone3 textabout2">
       <div id="header">
-        <h2 class="typing">Mis inicios&nbsp;<span>&nbsp;</span></h2>
+        <h2 class="typing">Educación&nbsp;<span>&nbsp;</span></h2>
+        <br />
+        <button
+          routerLink="/new-education"
+          *ngIf="isLogged"
+          class="contact-button"
+          style="margin: auto; line-height: 40px; font-size: 16px"
+          type="submit"
+        >
+          <div>
+            <span class="bg"></span>
+            <span class="base"></span>
+            <span class="text">Agregar educación</span>
+          </div>
+        </button>
+      </div>
+      <div *ngFor="let Education of education">
+        <h2>{{ Education.nameE }}</h2>
+        <p class="aboutme">
+          {{ Education.descriptionE }}
+        </p>
+        <button
+          *ngIf="isLogged"
+          routerLink="/edit-experience/{{ Education.id }}"
+        >
+          <i class="fa-solid fa-pen"></i> Editar
+        </button>
+        <button *ngIf="isLogged" (click)="delete(Education.id)">
+          <i class="fa-solid fa-trash"></i> Borrar
+        </button>
       </div>
       <p class="aboutme">
         Desde la infancia siempre tuve mucho interés y me encantaba usar la

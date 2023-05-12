@@ -1,22 +1,56 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { person } from 'src/app/model/person.module';
+import { EducationService } from 'src/app/service/education.service';
+import { Education } from 'src/app/model/education';
 import { PersonService } from 'src/app/service/person.service';
+import { TokenService } from 'src/app/service/token.service';
 
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.css']
 })
-export class AboutComponent {
-
+export class AboutComponent implements OnInit {
+  education: Education[] = [];
   person: person = new person("", "", "");
   title = 'porfolio';
 
-  constructor(public personService: PersonService) { }
+  constructor(public personService: PersonService, private educationS: EducationService, private tokenService: TokenService) { }
+  isLogged = false;
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.registerMouseMoveEvent();
-    this.personService.getPerson().subscribe(data => {this.person = data})
+    this.personService.getPerson().subscribe(data => {this.person = data});
+    this.loadEducation();
+    if(this.tokenService.getToken())
+    {
+      this.isLogged = true;
+    }
+    else
+    {
+      this.isLogged = false;
+    }
+  }
+
+  loadEducation(): void{
+    this.educationS.lista().subscribe(
+      data =>{
+        this.education = data;
+      }
+    )
+  }
+
+  delete(id?: number){
+    if(id != undefined)
+    {
+      this.educationS.delete(id).subscribe(
+        data => {
+          this.loadEducation();
+        }, err => {
+          alert("No se pudo eliminar")
+        }
+      )
+    }
   }
 
   registerMouseMoveEvent() {
