@@ -10,9 +10,9 @@
     ><i class="fa-solid fa-xmark"></i
   ></a>
   <br />
-  <img src="assets/img/levelup.gif" height="200" />
+  <img src="assets/img/skill.gif" height="200" />
   <br />
-  <h3>Agregar experiencia</h3>
+  <h3>Agregar habilidad</h3>
   <br />
   <form
     (ngSubmit)="onCreate()"
@@ -21,24 +21,24 @@
     style="padding-bottom: 15%"
   >
     <div>
-      <i class="fa-solid fa-briefcase icon"></i>
+      <i class="fa-solid fa-star icon"></i>
       <input
         type="text"
-        id="nameE"
-        name="nameE"
-        placeholder="Nombre de la empresa, emprendimiento o proyecto"
-        [(ngModel)]="nameE"
+        id="name"
+        name="name"
+        placeholder="Nombre de habilidad"
+        [(ngModel)]="name"
         required
       />
     </div>
     <div>
-      <i class="fa-solid fa-comment icon"></i>
+      <i class="fa-solid fa-percent icon"></i>
       <input
         type="text"
-        id="descriptionE"
-        name="descriptionE"
-        placeholder="Descripción de la experiencia"
-        [(ngModel)]="descriptionE"
+        id="percentage"
+        name="percentage"
+        placeholder="Porcentaje de la habilidad"
+        [(ngModel)]="percentage"
         required
       />
     </div>

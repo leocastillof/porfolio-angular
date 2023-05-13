@@ -23,10 +23,10 @@ export class NewEducationComponent implements OnInit{
     this.educationS.save(education).subscribe(
       data => {
         alert("Educación añadida correctamente");
-        this.router.navigate(['']);
+        window.location.reload();
       }, err => {
         alert("Ocurrió un error al añadir la educación");
-        this.router.navigate(['']);
+        window.location.reload();
       }
     )
   }

@@ -7,8 +7,9 @@ import { person } from '../model/person.module';
   providedIn: 'root'
 })
 export class PersonService {
-  // URL = 'http://localhost:8080/person/';
-  URL = 'https://porfolio-backend-lnwc.onrender.com/person/';
+  // 
+  URL = 'http://localhost:8080/person/';
+  // URL = 'https://porfolio-backend-lnwc.onrender.com/person/';
 
   constructor(private http: HttpClient) { }
 

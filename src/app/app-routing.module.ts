@@ -10,6 +10,8 @@ import { NewExperienceComponent } from './components/skills/new-experience.compo
 import { EditExperienceComponent } from './components/skills/edit-experience.component';
 import { NewEducationComponent } from './components/about/new-education.component';
 import { EditEducationComponent } from './components/about/edit-education.component';
+import { NewSkillComponent } from './components/skills/new-skill.component';
+import { EditSkillComponent } from './components/skills/edit-skill.component';
 
 // Rutas de navegación
 const routes: Routes = [
@@ -23,6 +25,8 @@ const routes: Routes = [
   { path: 'edit-experience/:id', component: EditExperienceComponent },
   { path: 'new-education', component: NewEducationComponent },
   { path: 'edit-education/:id', component: EditEducationComponent },
+  { path: 'new-skill', component: NewSkillComponent },
+  { path: 'edit-skill/:id', component: EditSkillComponent },
   { path: '**', component: PageNotFoundComponentComponent }
 ];
 

@@ -1,4 +1,4 @@
-<div *ngIf="exp">
+<div *ngIf="skill">
   <script
     src="https://kit.fontawesome.com/425273aaba.js"
     crossorigin="anonymous"
@@ -11,9 +11,9 @@
       ><i class="fa-solid fa-xmark"></i
     ></a>
     <br />
-    <img src="assets/img/levelup.gif" height="200" />
+    <img src="assets/img/skill-2.gif" height="200" />
     <br />
-    <h3>Modificar experiencia</h3>
+    <h3>Modificar habilidad</h3>
     <br />
     <form
       (ngSubmit)="onUpdate()"
@@ -22,24 +22,24 @@
       style="padding-bottom: 15%"
     >
       <div>
-        <i class="fa-solid fa-briefcase icon"></i>
+        <i class="fa-solid fa-star icon"></i>
         <input
           type="text"
-          id="nameE"
-          name="nameE"
-          placeholder="Nombre de la empresa, emprendimiento o proyecto"
-          [(ngModel)]="exp.nameE"
+          id="name"
+          name="name"
+          placeholder="Nombre de la habilidad"
+          [(ngModel)]="skill.name"
           required
         />
       </div>
       <div>
-        <i class="fa-solid fa-comment icon"></i>
+        <i class="fa-solid fa-percent icon"></i>
         <input
           type="text"
-          id="descriptionE"
-          name="descriptionE"
-          placeholder="Descripción de la experiencia"
-          [(ngModel)]="exp.descriptionE"
+          id="percentage"
+          name="percentage"
+          placeholder="Porcentaje de la habilidad"
+          [(ngModel)]="skill.percentage"
           required
         />
       </div>

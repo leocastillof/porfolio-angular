@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Experience } from 'src/app/model/experience';
+import { Skill } from 'src/app/model/skill';
 import { ServiceExperience } from 'src/app/service/service-experience.service';
+import { SkillService } from 'src/app/service/skill.service';
 import { TokenService } from 'src/app/service/token.service';
 
 declare var TagCanvas: any;
@@ -11,16 +13,18 @@ declare var TagCanvas: any;
   styleUrls: ['./skills.component.css']
 })
 export class SkillsComponent implements OnInit{
+  skill: Skill[] = [];
   exp: Experience[] = [];
   title = 'porfolio';
 
-  constructor(private serviceExperience: ServiceExperience, private tokenService: TokenService) { }
+  constructor(private skillService: SkillService, private serviceExperience: ServiceExperience, private tokenService: TokenService) { }
 
   isLogged = false;
 
   ngOnInit(): void {
     this.registerMouseMoveEvent();
     this.loadExperience();
+    this.loadSkills();
     if(this.tokenService.getToken())
     {
       this.isLogged = true;
@@ -36,7 +40,11 @@ export class SkillsComponent implements OnInit{
     this.serviceExperience.list().subscribe(data => {this.exp = data;})
   }
 
-  delete(id?: number){
+  loadSkills(): void{
+    this.skillService.list().subscribe(data => {this.skill = data;})
+  }
+
+  deleteExp(id?: number){
     if(id != undefined)
     {
       this.serviceExperience.delete(id).subscribe(
@@ -44,6 +52,19 @@ export class SkillsComponent implements OnInit{
           this.loadExperience();
         }, err => {
           alert("No se pudo eliminar la experiencia");
+        }
+      )
+    }
+  }
+
+  deleteSkill(id?: number){
+    if(id != undefined)
+    {
+      this.skillService.delete(id).subscribe(
+        data => {
+          this.loadSkills();
+        }, err => {
+          alert("No se pudo borrar la habilidad");
         }
       )
     }

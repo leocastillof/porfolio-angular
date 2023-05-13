@@ -24,74 +24,33 @@
         </div>
       </button>
       <br />
-
-      <div class="containerr" style="display: contents; margin-top: 10%">
-        <table>
-          <thead>
-            <tr>
-              <th>Nombre</th>
-              <th>Descripción</th>
-              <th *ngIf="isLogged"></th>
-              <th *ngIf="isLogged"></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let Experience of exp">
-              <td>{{ Experience.nameE }}</td>
-              <td>{{ Experience.descriptionE }}</td>
-              <td *ngIf="isLogged">
-                <button routerLink="/edit-experience/{{ Experience.id }}">
-                  <i class="fa-solid fa-pen"></i> Editar
-                </button>
-              </td>
-              <td *ngIf="isLogged">
-                <button (click)="delete(Experience.id)"><i class="fa-solid fa-trash"></i> Borrar</button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
     </div>
 
     <div style="margin-bottom: 10%">
       <br />
       <div class="text-zone3">
-        <p class="aboutme">
-          Desde que empecé mi vida como programador freelance en estos 4 años de
-          experiencia. He adquirido conocimientos que no esperaba aprender. Con
-          el tiempo el logrado una experiencia laboral haciendo plataformas
-          E-Commerce para un emprendimiento de venta de Accesorios en mi ciudad
-          (Rocco Accesorios). También creé mi proyecto freelance de Red Social
-          (RayApp). He podido conocer gente que me ayudó a mejorar como persona
-          y como desarrollador.
-        </p>
-        <p class="aboutme">
-          Creo sitios web fáciles de usar, construido para que el usuario tenga
-          una gran experiencia. Siempre me enfoco en hacer todo lo mejor
-          posible, siguiendo las buenas prácticas del programador. Y al mismo
-          tiempo hago que las cosas que parecen complicadas puedan ser
-          sencillas. Mi área principal e inicial fue el desarrollo de front-end,
-          HTML, CSS, JS, Angular. Con el tiempo he adquirido conocimientos del
-          lado back-end, SQL, PHP, Java, Spring Boot y Kotlin.
-        </p>
-        <p class="aboutme">
-          Como objetivo me gustaría en algún tiempo ser dedicado a Mobile.
-          Desarrollo de aplicaciones móviles.
-          <br />
-        </p>
-        <p class="aboutme">
-          Puede visitar mi perfil de
-          <a href="https://www.linkedin.com/in/leocastillof/" target="_blank"
-            >LinkedIn</a
+        <div *ngFor="let Experience of exp">
+          <button
+            class="button-edit"
+            *ngIf="isLogged"
+            routerLink="/edit-experience/{{ Experience.id }}"
           >
-          o
-          <a href="https://github.com/leocastillof" target="_blank">Github</a>
-          para obtener más detalles o simplemente
-          <a href="mailto:leocastillofavierx@gmail.com" target="_blank"
-            >contactarme</a
-          >.
+            <i class="fa-solid fa-pen"></i> Editar
+          </button>
+          &nbsp;
+          <button
+            class="button-remove"
+            *ngIf="isLogged"
+            (click)="deleteExp(Experience.id)"
+          >
+            <i class="fa-solid fa-trash"></i> Borrar
+          </button>
+          <h2>{{ Experience.nameE }}</h2>
           <br />
-        </p>
+          <p class="aboutme">
+            {{ Experience.descriptionE }}
+          </p>
+        </div>
       </div>
     </div>
   </div>
@@ -128,102 +87,46 @@
 
 <section class="section-about-2" style="margin-top: -8%">
   <div class="skills-details" style="padding: 10%">
-    <div class="chart">
-      <span>HTML</span>
-      <footer>
-        <div data-width="95%" style="background: #af495f; width: 95%"></div>
-      </footer>
-    </div>
-
-    <div class="chart">
-      <span>CSS</span>
-      <footer>
-        <div data-width="90%" style="background: #d5816c; width: 90%"></div>
-      </footer>
-    </div>
-
-    <div class="chart">
-      <span>SQL</span>
-      <footer>
-        <div data-width="90%" style="background: #d5b96c; width: 90%"></div>
-      </footer>
-    </div>
-
-    <div class="chart">
-      <span>PHP</span>
-      <footer>
-        <div data-width="90%" style="background: #75d56c; width: 90%"></div>
-      </footer>
-    </div>
-
-    <div class="chart">
-      <span>JavaScript</span>
-      <footer>
-        <div data-width="90%" style="background: #6c9dd5; width: 90%"></div>
-      </footer>
-    </div>
-
-    <div class="chart">
-      <span>Ajax</span>
-      <footer>
-        <div data-width="90%" style="background: #996cd5; width: 90%"></div>
-      </footer>
-    </div>
-
-    <div class="chart">
-      <span>JQuery</span>
-      <footer>
-        <div data-width="85%" style="background: #d56cd0; width: 85%"></div>
-      </footer>
-    </div>
-
-    <div class="chart">
-      <span>REST</span>
-      <footer>
-        <div data-width="80%" style="background: #d56c9d; width: 80%"></div>
-      </footer>
-    </div>
-
-    <div class="chart">
-      <span>Kotlin</span>
-      <footer>
-        <div data-width="70%" style="background: #d56c6c; width: 70%"></div>
-      </footer>
-    </div>
-
-    <div class="chart">
-      <span>Java</span>
-      <footer>
-        <div data-width="30%" style="background: #a30606; width: 30%"></div>
-      </footer>
-    </div>
-
-    <div class="chart">
-      <span>Inglés</span>
-      <footer>
-        <div data-width="30%" style="background: #44830a; width: 30%"></div>
-      </footer>
-    </div>
-
-    <div class="chart">
-      <span>Angular</span>
-      <footer>
-        <div data-width="20%" style="background: #cc003d; width: 20%"></div>
-      </footer>
-    </div>
-
-    <div class="chart">
-      <span>Visual Code Studio</span>
-      <footer>
-        <div data-width="85%" style="background: #0a3483; width: 85%"></div>
-      </footer>
-    </div>
-
-    <div class="chart">
-      <span>Android Studio</span>
-      <footer>
-        <div data-width="85%" style="background: #ffffff; width: 85%"></div>
-      </footer>
+    <br />
+    <button
+      routerLink="/new-skill"
+      *ngIf="isLogged"
+      class="contact-button"
+      style="margin: auto; line-height: 40px"
+      type="submit"
+    >
+      <div>
+        <span class="bg"></span>
+        <span class="base"></span>
+        <span class="text">Agregar habilidad</span>
+      </div>
+    </button>
+    <br />
+    <div *ngFor="let Skill of skill">
+      <div class="chart">
+        <span>{{ Skill.name }}</span>
+        <footer>
+          <div
+            [style.width.%]="Skill.percentage"
+            style="background: #fdbf2d"
+          ></div>
+        </footer>
+        <button
+          class="button-edit"
+          *ngIf="isLogged"
+          routerLink="/edit-skill/{{ Skill.id }}"
+        >
+          <i class="fa-solid fa-pen"></i> Editar
+        </button>
+        &nbsp;
+        <button
+          class="button-remove"
+          *ngIf="isLogged"
+          (click)="deleteSkill(Skill.id)"
+        >
+          <i class="fa-solid fa-trash"></i> Borrar
+        </button>
+      </div>
     </div>
 
     <div class="container">

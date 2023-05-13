@@ -10,8 +10,9 @@ import { NewUser } from '../model/new-user';
 })
 export class AuthService {
 
- // authURL = 'http://localhost:8080/auth/';
- authURL = 'https://porfolio-backend-lnwc.onrender.com/auth/';
+ //
+  authURL = 'http://localhost:8080/auth/';
+ // authURL = 'https://porfolio-backend-lnwc.onrender.com/auth/';
 
   constructor(private httpClient: HttpClient) { }
 

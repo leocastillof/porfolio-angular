@@ -24,10 +24,10 @@ export class NewExperienceComponent implements OnInit{
     this.serviceExperience.save(exp).subscribe(
       data => {
         alert("Experiencia agregada exitosamente");
-        this.router.navigate(['']);
+        window.location.reload();
       }, err => {
         alert("Ocurrió un error");
-        this.router.navigate(['']);
+        window.location.reload();
       }
     )
   }
