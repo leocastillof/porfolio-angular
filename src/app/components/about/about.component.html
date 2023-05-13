@@ -49,9 +49,14 @@
   </section>
 
   <section class="section-about">
-    <div class="text-zone3 textabout2">
+    <div class="imageabout">
+      <img src="assets/img/mrobot.gif" alt="Leo Castillo" />
+    </div>
+    <div class="text-zone textabout">
       <div id="header">
-        <h2 class="typing">Educación&nbsp;<span>&nbsp;</span></h2>
+        <h2 class="typing" style="text-align: center">
+          Educación&nbsp;<span>&nbsp;</span>
+        </h2>
         <br />
         <button
           routerLink="/new-education"
@@ -68,8 +73,8 @@
         </button>
       </div>
       <div *ngFor="let Education of education">
-        <h2>{{ Education.nameE }}</h2>
-        <p class="aboutme">
+        <h2 style="text-align: center">{{ Education.nameE }}</h2>
+        <p class="aboutme" style="text-align: center">
           {{ Education.descriptionE }}
         </p>
         <button
@@ -88,9 +93,6 @@
           <i class="fa-solid fa-trash"></i> Borrar
         </button>
       </div>
-    </div>
-    <div class="imageabout2">
-      <img src="assets/img/mrobot.gif" alt="Leo Castillo" />
     </div>
   </section>
 </div>

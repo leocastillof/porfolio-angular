@@ -61,3 +61,35 @@
     top: -1rem;
 	z-index: 99;
 }
+
+@media (max-width: 768px) {
+    .textabout, .textabout2 {
+      float: none;
+      width: 100%;
+      padding: 0;
+      box-sizing: border-box;
+    }
+  
+    .imageabout, .imageabout2 {
+      margin: 0 auto;
+      display: block;
+      box-sizing: border-box;
+    }
+  
+    .imageabout img, .imageabout2 img {
+      height: auto;
+      width: 100%;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 25px;
+      border: 2px solid #fdbf2d;
+      position: relative;
+      top: 0;
+      transition: 250ms top ease-in-out;
+    }
+  
+    .imageabout img:hover, .imageabout2 img:hover {
+      top: -1rem;
+      z-index: 99;
+    }
+  }
