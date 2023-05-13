@@ -1,0 +1,83 @@
+<div *ngIf="person">
+  <script
+    src="https://kit.fontawesome.com/425273aaba.js"
+    crossorigin="anonymous"
+  ></script>
+  <div id="blob"></div>
+  <div id="blob2"></div>
+  <div id="blob3"></div>
+  <div id="box">
+    <a class="exitButton" routerLink="/contact"
+      ><i class="fa-solid fa-xmark"></i
+    ></a>
+    <br />
+    <img src="assets/img/homer.gif" height="200" />
+    <br />
+    <h3>Modificar persona</h3>
+    <br />
+    <form
+      (ngSubmit)="onUpdate()"
+      novalidate
+      #f="ngForm"
+      style="padding-bottom: 15%"
+    >
+      <div>
+        <i class="fa-solid fa-briefcase icon"></i>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Nombre de la persona"
+          [(ngModel)]="person.name"
+          required
+        />
+      </div>
+
+      <div>
+        <i class="fa-solid fa-briefcase icon"></i>
+        <input
+          type="text"
+          id="lastname"
+          name="lastname"
+          placeholder="Apellido de la persona"
+          [(ngModel)]="person.lastname"
+          required
+        />
+      </div>
+
+      <div>
+        <i class="fa-solid fa-briefcase icon"></i>
+        <input
+          type="text"
+          id="description"
+          name="description"
+          placeholder="Descripción breve"
+          [(ngModel)]="person.description"
+          required
+        />
+      </div>
+
+      <div>
+        <i class="fa-solid fa-briefcase icon"></i>
+        <input
+          type="file"
+          id="img"
+          name="img"
+          placeholder="Imagen"
+          [(ngModel)]="person.img"
+          (change)="uploadImage($event)"
+          accept=".jpg, jpeg, .gif, .png"
+          required
+        />
+      </div>
+
+      <button class="contact-button" style="margin: auto; line-height: 40px">
+        <div>
+          <span class="bg"></span>
+          <span class="base"></span>
+          <span class="text">Modificar</span>
+        </div>
+      </button>
+    </form>
+  </div>
+</div>

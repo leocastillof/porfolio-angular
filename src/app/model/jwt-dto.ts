@@ -1,6 +1,6 @@
 export class JwtDto {
-    token!: String;
-    type!: String;
-    username!: String;
-    authorities!: String[];
+    token!: string;
+    type!: string;
+    username!: string;
+    authorities!: string[];
 }

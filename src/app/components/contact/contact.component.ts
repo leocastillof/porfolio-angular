@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Contact } from 'src/app/model/contact';
 import { ContactService } from 'src/app/service/contact.service';
-import { person } from 'src/app/model/person.module';
 import { TokenService } from 'src/app/service/token.service';
 import { PersonService } from 'src/app/service/person.service';
+import { Person } from 'src/app/model/person';
 
 @Component({
   selector: 'app-contact',
@@ -11,7 +11,7 @@ import { PersonService } from 'src/app/service/person.service';
   styleUrls: ['./contact.component.css']
 })
 export class ContactComponent implements OnInit {
-  person: person = null;
+  Person: Person = null;
   contact: Contact[] = [];
   title = 'porfolio';
 
@@ -19,7 +19,6 @@ export class ContactComponent implements OnInit {
   isLogged = false;
 
   ngOnInit(): void {
-    this.personService.getPerson().subscribe(data => {this.person = data});
     this.loadContact();
     if(this.tokenService.getToken())
     {

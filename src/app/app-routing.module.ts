@@ -15,6 +15,7 @@ import { EditSkillComponent } from './components/skills/edit-skill.component';
 import { NewAboutmeComponent } from './components/about/new-aboutme.component';
 import { EditAboutmeComponent } from './components/about/edit-aboutme.component';
 import { NewContactComponent } from './components/contact/new-contact.component';
+import { EditPersonComponent } from './components/navmenu/edit-person.component';
 import { EditContactComponent } from './components/contact/edit-contact.component';
 
 // Rutas de navegación
@@ -35,6 +36,7 @@ const routes: Routes = [
   { path: 'edit-aboutme/:id', component: EditAboutmeComponent },
   { path: 'new-contact', component: NewContactComponent },
   { path: 'edit-contact/:id', component: EditContactComponent },
+  { path: 'edit-person/:id', component: EditPersonComponent },
   { path: '**', component: PageNotFoundComponentComponent }
 ];
 

@@ -4,7 +4,7 @@ import { AboutService } from 'src/app/service/about.service';
 import { TokenService } from 'src/app/service/token.service';
 import { Contact } from 'src/app/model/contact';
 import { ContactService } from 'src/app/service/contact.service';
-import { person } from 'src/app/model/person.module';
+import { Person } from 'src/app/model/person';
 import { PersonService } from 'src/app/service/person.service';
 
 declare var TagCanvas: any;
@@ -15,17 +15,17 @@ declare var TagCanvas: any;
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  person: person = null;
+  person: Person = null;
   contact: Contact[] = [];
   aboutme: Aboutme[] = [];
   title = 'porfolio';
 
-  constructor(private aboutmeService: AboutService, private tokenService: TokenService, 
-    public personService: PersonService, private contactService: ContactService) { }
+  constructor(private aboutmeService: AboutService, private tokenService: TokenService, private contactService: ContactService,
+    private personService: PersonService) { }
   isLogged = false;
 
   ngOnInit() : void {
-    this.personService.getPerson().subscribe(data => {this.person = data});
+    this.loadPerson();
     this.registerMouseMoveEvent();
     this.loadAboutMe();
     this.loadContact();
@@ -39,6 +39,15 @@ export class HomeComponent implements OnInit {
     }
     
   }
+
+  loadPerson(): void{
+    this.personService.detail(1).subscribe(
+      data =>{
+        this.person = data;
+      }
+    )
+  }
+
 
   loadAboutMe(): void{
     this.aboutmeService.lista().subscribe(

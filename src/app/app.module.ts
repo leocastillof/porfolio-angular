@@ -24,6 +24,10 @@ import { NewAboutmeComponent } from './components/about/new-aboutme.component';
 import { EditAboutmeComponent } from './components/about/edit-aboutme.component';
 import { NewContactComponent } from './components/contact/new-contact.component';
 import { EditContactComponent } from './components/contact/edit-contact.component';
+import { EditPersonComponent } from './components/navmenu/edit-person.component';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideStorage,getStorage } from '@angular/fire/storage';
 
 @NgModule({
   declarations: [
@@ -45,7 +49,8 @@ import { EditContactComponent } from './components/contact/edit-contact.componen
     NewAboutmeComponent,
     EditAboutmeComponent,
     NewContactComponent,
-    EditContactComponent
+    EditContactComponent,
+    EditPersonComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +58,9 @@ import { EditContactComponent } from './components/contact/edit-contact.componen
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-    NgCircleProgressModule.forRoot({})
+    NgCircleProgressModule.forRoot({}),
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideStorage(() => getStorage())
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true },

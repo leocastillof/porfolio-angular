@@ -2,15 +2,23 @@
   <div class="aside-wrapper">
     <div class="logo-section">
       <a
+        *ngFor="let Contact of contact"
         class="logo"
         rel="home"
-        href="https://www.linkedin.com/in/leocastillof/"
+        href="{{ Contact.linkedin }}"
         target="_blank"
       >
-        <img src="assets/img/leocastillo.png" alt="Mi foto de perfil" />
-        <span>Leo Castillo</span>
+        <img src="{{ person.img }}" alt="Mi foto de perfil" />
+        <span>{{ person.name }} {{ person.lastname }}</span>
       </a>
-      <span>Full Stack Dev</span>
+      <span>{{ person.description }}</span>
+      <button
+        class="button-edit"
+        *ngIf="isLogged"
+        routerLink="/edit-person/{{ person.id }}"
+      >
+        <i class="fa-solid fa-pen"></i> Editar
+      </button>
     </div>
 
     <nav class="nav-links">
