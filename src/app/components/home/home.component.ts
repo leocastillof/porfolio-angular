@@ -6,23 +6,39 @@ import { Contact } from 'src/app/model/contact';
 import { ContactService } from 'src/app/service/contact.service';
 import { Person } from 'src/app/model/person';
 import { PersonService } from 'src/app/service/person.service';
+import { MusicService } from 'src/app/service/music.service';
 
 declare var TagCanvas: any;
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
+  template: `
+    <button (click)="soundOn()">Turn on sound</button>
+    <button (click)="soundOff()">Turn off sound</button>
+  `,
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
   person: Person = null;
+  
   contact: Contact[] = [];
   aboutme: Aboutme[] = [];
   title = 'porfolio';
 
   constructor(private aboutmeService: AboutService, private tokenService: TokenService, private contactService: ContactService,
-    private personService: PersonService) { }
+    private personService: PersonService,
+    private musicService: MusicService) { }
   isLogged = false;
+
+  soundOn() {
+    this.musicService.soundTrack('on');
+  }
+
+  soundOff() {
+    this.musicService.soundTrack('off');
+  }
+
 
   ngOnInit() : void {
     this.loadPerson();
@@ -39,6 +55,7 @@ export class HomeComponent implements OnInit {
     }
     
   }
+    
 
   loadPerson(): void{
     this.personService.detail(1).subscribe(
