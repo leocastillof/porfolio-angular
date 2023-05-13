@@ -4,6 +4,8 @@ import { EducationService } from 'src/app/service/education.service';
 import { Education } from 'src/app/model/education';
 import { PersonService } from 'src/app/service/person.service';
 import { TokenService } from 'src/app/service/token.service';
+import { Aboutme } from 'src/app/model/aboutme';
+import { AboutService } from 'src/app/service/about.service';
 
 @Component({
   selector: 'app-about',
@@ -11,17 +13,18 @@ import { TokenService } from 'src/app/service/token.service';
   styleUrls: ['./about.component.css']
 })
 export class AboutComponent implements OnInit {
+  aboutme: Aboutme[] = [];
   education: Education[] = [];
   person: person = new person("", "", "");
   title = 'porfolio';
 
-  constructor(public personService: PersonService, private educationS: EducationService, private tokenService: TokenService) { }
+  constructor(private aboutmeService: AboutService, public personService: PersonService, private educationS: EducationService, private tokenService: TokenService) { }
   isLogged = false;
 
   ngOnInit(): void {
-    this.registerMouseMoveEvent();
     this.personService.getPerson().subscribe(data => {this.person = data});
     this.loadEducation();
+    this.loadAboutMe();
     if(this.tokenService.getToken())
     {
       this.isLogged = true;
@@ -40,6 +43,15 @@ export class AboutComponent implements OnInit {
     )
   }
 
+  loadAboutMe(): void{
+    this.aboutmeService.lista().subscribe(
+      data =>{
+        this.aboutme = data;
+      }
+    )
+  }
+
+
   delete(id?: number){
     if(id != undefined)
     {
@@ -53,69 +65,18 @@ export class AboutComponent implements OnInit {
     }
   }
 
-  registerMouseMoveEvent() {
-    // Mouse Trails
-    const section_home = document.querySelector('.section-about') as HTMLElement; // Anotación de tipo explícita para section_home
-  
-    interface Dot {
-      x: number;
-      y: number;
-      node: HTMLDivElement; // Anotación de tipo explícita para node
-      draw(): void; // Anotación de tipo explícita para el método draw
+  deleteAboutMe(id?: number){
+    if(id != undefined)
+    {
+      this.aboutmeService.delete(id).subscribe(
+        data => {
+          this.loadAboutMe();
+        }, err => {
+          alert("No se pudo eliminar")
+        }
+      )
     }
-  
-    let dots: Dot[] = []; // Anotación de tipo explícita para dots
-    let mouse = { x: 0, y: 0 };
-  
-    class DotClass implements Dot { // Utilizando una clase para definir Dot
-      x = 0;
-      y = 0;
-      node = (() => {
-        const n = document.createElement("div");
-        n.className = "trail";
-        document.body.appendChild(n);
-        return n;
-      })();
-  
-      draw() {
-        this.node.style.left = this.x + "px";
-        this.node.style.top = this.y + "px";
-      }
-    }
-  
-    for (let i = 0; i < 12; i++) {
-      const d = new DotClass();
-      dots.push(d);
-    }
-  
-    function draw() {
-      var x = mouse.x,
-        y = mouse.y;
-  
-      dots.forEach(function (dot, index, dots) {
-        var nextDot = dots[index + 1] || dots[0];
-  
-        dot.x = x;
-        dot.y = y;
-        dot.draw();
-        x += (nextDot.x - dot.x) * 0.6;
-        y += (nextDot.y - dot.y) * 0.6;
-      });
-    }
-  
-    if (section_home) {
-      section_home.addEventListener("mousemove", function (event) {
-        mouse.x = event.pageX;
-        mouse.y = event.pageY;
-        // Haz algo con las coordenadas del mouse
-      });
-    }
-  
-    function animate() {
-      draw();
-      requestAnimationFrame(animate);
-    }
-  
-    animate();
   }
+
+
 }

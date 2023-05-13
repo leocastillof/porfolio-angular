@@ -9,23 +9,42 @@
     <div class="text-zone3 textabout">
       <div id="header">
         <h2 class="typing">Acerca de mí&nbsp;<span>&nbsp;</span></h2>
+        <br />
+        <button
+          routerLink="/new-aboutme"
+          *ngIf="isLogged"
+          class="contact-button"
+          style="margin: auto; line-height: 40px; font-size: 16px"
+          type="submit"
+        >
+          <div>
+            <span class="bg"></span>
+            <span class="base"></span>
+            <span class="text">Agregar Descripción</span>
+          </div>
+        </button>
       </div>
-      <p class="aboutme">
-        Soy <span id="name">{{ person.name }} {{ person.lastname }}</span
-        >, Desarrollador Full Stack ubicado en Argentina. Tengo una gran pasión
-        al lado Front-End Web y la interfaz de usuario, la creación de
-        experiencias de usuario intuitivas y dinámicas. Me gusta aprender y no
-        quedarme atrás con los conocimientos de la programación.
-      </p>
-      <p class="aboutme">
-        Persona organizada, siempre me esfuerzo por encontrar la solución a los
-        problemas. Actualmente soy un desarrollador autonomo (Freelance).
-        Aficionado a la actividad física, en especial al gimnasio y a la
-        natación. Me esfuerzo por mantenerme saludable para rendir más al
-        momento de trabajar y estudiar.
-        <br />
-        <br />
-      </p>
+
+      <div *ngFor="let About of aboutme">
+        <button
+          class="button-edit"
+          *ngIf="isLogged"
+          routerLink="/edit-aboutme/{{ About.id }}"
+        >
+          <i class="fa-solid fa-pen"></i> Editar
+        </button>
+        &nbsp;
+        <button
+          class="button-remove"
+          *ngIf="isLogged"
+          (click)="deleteAboutMe(About.id)"
+        >
+          <i class="fa-solid fa-trash"></i> Borrar
+        </button>
+        <p>
+          {{ About.description }}
+        </p>
+      </div>
     </div>
   </section>
 
@@ -53,7 +72,6 @@
         <p class="aboutme">
           {{ Education.descriptionE }}
         </p>
-        <!-- HTML !-->
         <button
           class="button-edit"
           *ngIf="isLogged"

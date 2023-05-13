@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Aboutme } from 'src/app/model/aboutme';
+import { AboutService } from 'src/app/service/about.service';
+import { TokenService } from 'src/app/service/token.service';
 
 declare var TagCanvas: any;
 
@@ -7,15 +10,35 @@ declare var TagCanvas: any;
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
+  aboutme: Aboutme[] = [];
   title = 'porfolio';
 
-  constructor() { }
+  constructor(private aboutmeService: AboutService, private tokenService: TokenService) { }
+  isLogged = false;
 
-  ngOnInit() {
+  ngOnInit() : void {
     this.registerMouseMoveEvent();
+    this.loadAboutMe();
+    if(this.tokenService.getToken())
+    {
+      this.isLogged = true;
+    }
+    else
+    {
+      this.isLogged = false;
+    }
+    
   }
 
+  loadAboutMe(): void{
+    this.aboutmeService.lista().subscribe(
+      data =>{
+        this.aboutme = data;
+      }
+    )
+  }
+  
   ngAfterViewInit() {
     let canvas = document.getElementById('myCanvas');
     let tags = document.getElementById('tags');
