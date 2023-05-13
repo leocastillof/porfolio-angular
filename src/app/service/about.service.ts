@@ -2,14 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Aboutme } from '../model/aboutme';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AboutService {
-  // 
-  URL = 'http://localhost:8080/aboutme/';
-  // URL = 'https://porfolio-backend-lnwc.onrender.com/aboutme/';
+  URL = environment.URL + 'aboutme/';
 
   constructor(private httpClient: HttpClient) { }
 

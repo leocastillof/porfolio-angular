@@ -15,8 +15,8 @@ declare var TagCanvas: any;
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  person: person = null;
   contact: Contact[] = [];
-  person: person = new person("", "", "");
   aboutme: Aboutme[] = [];
   title = 'porfolio';
 

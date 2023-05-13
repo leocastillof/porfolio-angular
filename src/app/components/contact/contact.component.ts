@@ -11,8 +11,8 @@ import { PersonService } from 'src/app/service/person.service';
   styleUrls: ['./contact.component.css']
 })
 export class ContactComponent implements OnInit {
+  person: person = null;
   contact: Contact[] = [];
-  person: person = new person("", "", "");
   title = 'porfolio';
 
   constructor(public personService: PersonService, private contactService: ContactService, private tokenService: TokenService) { }

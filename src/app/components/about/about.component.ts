@@ -13,9 +13,9 @@ import { AboutService } from 'src/app/service/about.service';
   styleUrls: ['./about.component.css']
 })
 export class AboutComponent implements OnInit {
+  person: person = null;
   aboutme: Aboutme[] = [];
   education: Education[] = [];
-  person: person = new person("", "", "");
   title = 'porfolio';
 
   constructor(private aboutmeService: AboutService, public personService: PersonService, private educationS: EducationService, private tokenService: TokenService) { }
