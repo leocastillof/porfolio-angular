@@ -84,9 +84,60 @@
     </div>
   </div>
 </section>
-
+<div class="container">
+  <div class="box">
+    <a href="https://www.therayapp.com/" target="_blank">
+      <div class="imgBx">
+        <img src="assets/img/RayApp.jpg" />
+      </div>
+      <div class="content">
+        <div>
+          <h2>RayApp</h2>
+          <p>
+            Proyecto Freelance, Red Social hecho con Kotlin, CSS, HTML, SQL, PHP
+            & JavaScript
+          </p>
+        </div>
+      </div>
+    </a>
+  </div>
+  <div class="box">
+    <a href="https://www.therayapp.com/rocco/" target="_blank">
+      <div class="imgBx">
+        <img src="assets/img/rocco.jpeg" />
+      </div>
+      <div class="content">
+        <div>
+          <h2>Rocco Accesorios</h2>
+          <p>
+            Plataforma E-Commerce. Armazones, Lentes de Sol, entre otros.
+            Desarrollado con CSS, JavaScript, SQL, PHP, HTML.
+            <br /><br />
+            Integración de Checkout Pro de MercadoPago
+          </p>
+        </div>
+      </div>
+    </a>
+  </div>
+  <div class="box">
+    <a href="#" target="_blank">
+      <div class="imgBx">
+        <img src="assets/img/me.jpg" />
+      </div>
+      <div class="content">
+        <div>
+          <h2>Porfolio</h2>
+          <p>
+            Desarrollado con Framework Angular. Utilizando CSS, SQL, TypeScript,
+            Java con Spring Boot.
+          </p>
+        </div>
+      </div>
+    </a>
+  </div>
+</div>
 <section class="section-about-2" style="margin-top: -8%">
-  <div class="skills-details" style="padding: 10%">
+  <div style="padding: 10%">
     <br />
     <button
       routerLink="/new-skill"
@@ -102,85 +153,45 @@
       </div>
     </button>
     <br />
-    <div *ngFor="let Skill of skill">
-      <div class="chart">
-        <span>{{ Skill.name }}</span>
-        <footer>
-          <div
-            [style.width.%]="Skill.percentage"
-            style="background: #fdbf2d"
-          ></div>
-        </footer>
-        <button
-          class="button-edit"
-          *ngIf="isLogged"
-          routerLink="/edit-skill/{{ Skill.id }}"
-        >
-          <i class="fa-solid fa-pen"></i> Editar
-        </button>
-        &nbsp;
-        <button
-          class="button-remove"
-          *ngIf="isLogged"
-          (click)="deleteSkill(Skill.id)"
-        >
-          <i class="fa-solid fa-trash"></i> Borrar
-        </button>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="box">
-        <a href="https://www.therayapp.com/" target="_blank">
-          <div class="imgBx">
-            <img src="assets/img/RayApp.jpg" />
-          </div>
-          <div class="content">
-            <div>
-              <h2>RayApp</h2>
-              <p>
-                Proyecto Freelance, Red Social hecho con Kotlin, CSS, HTML, SQL,
-                PHP & JavaScript
-              </p>
+    <div class="wrapperr">
+      <div *ngFor="let Skill of skill">
+        <div class="five">
+          <span>{{ Skill.name }}</span>
+          <footer>
+            <div class="progress-bar" [style.background]=""></div>
+            <div align="center" style="margin-top: 10%">
+              <circle-progress
+                [percent]="Skill.percentage"
+                [space]="-10"
+                [radius]="100"
+                [outerStrokeWidth]="10"
+                [innerStrokeWidth]="10"
+                [outerStrokeColor]="'#fdbf2d'"
+                [innerStrokeColor]="'#858585'"
+                [animation]="true"
+                [animationDuration]="1000"
+              ></circle-progress>
             </div>
-          </div>
-        </a>
-      </div>
-      <div class="box">
-        <a href="https://www.therayapp.com/rocco/" target="_blank">
-          <div class="imgBx">
-            <img src="assets/img/rocco.jpeg" />
-          </div>
-          <div class="content">
-            <div>
-              <h2>Rocco Accesorios</h2>
-              <p>
-                Plataforma E-Commerce. Armazones, Lentes de Sol, entre otros.
-                Desarrollado con CSS, JavaScript, SQL, PHP, HTML.
-                <br /><br />
-                Integración de Checkout Pro de MercadoPago
-              </p>
-            </div>
-          </div>
-        </a>
-      </div>
-      <div class="box">
-        <a href="#" target="_blank">
-          <div class="imgBx">
-            <img src="assets/img/me.jpg" />
-          </div>
-          <div class="content">
-            <div>
-              <h2>Porfolio</h2>
-              <p>
-                Desarrollado con Framework Angular. Utilizando CSS, SQL,
-                TypeScript, Java con Spring Boot.
-              </p>
-            </div>
-          </div>
-        </a>
+          </footer>
+          <button
+            class="button-edit"
+            *ngIf="isLogged"
+            routerLink="/edit-skill/{{ Skill.id }}"
+          >
+            <i class="fa-solid fa-pen"></i> Editar
+          </button>
+          &nbsp;
+          <button
+            class="button-remove"
+            *ngIf="isLogged"
+            (click)="deleteSkill(Skill.id)"
+          >
+            <i class="fa-solid fa-trash"></i> Borrar
+          </button>
+        </div>
       </div>
     </div>
   </div>
+
   <br /><br />
 </section>
