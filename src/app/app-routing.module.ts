@@ -14,6 +14,8 @@ import { NewSkillComponent } from './components/skills/new-skill.component';
 import { EditSkillComponent } from './components/skills/edit-skill.component';
 import { NewAboutmeComponent } from './components/about/new-aboutme.component';
 import { EditAboutmeComponent } from './components/about/edit-aboutme.component';
+import { NewContactComponent } from './components/contact/new-contact.component';
+import { EditContactComponent } from './components/contact/edit-contact.component';
 
 // Rutas de navegación
 const routes: Routes = [
@@ -31,6 +33,8 @@ const routes: Routes = [
   { path: 'edit-skill/:id', component: EditSkillComponent },
   { path: 'new-aboutme', component: NewAboutmeComponent },
   { path: 'edit-aboutme/:id', component: EditAboutmeComponent },
+  { path: 'new-contact', component: NewContactComponent },
+  { path: 'edit-contact/:id', component: EditContactComponent },
   { path: '**', component: PageNotFoundComponentComponent }
 ];
 

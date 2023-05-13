@@ -27,15 +27,19 @@
       <p class="parraf_section_two">
         Dejo alguno de mis proyectos o trabajos hecho con cariño 💛
         <br />
-        Si te interesa ver más, dejo mi
-        <a target="_blank" href="https://www.instagram.com/leocastillo.f/"
-          >Instagram</a
+        Si te interesa ver más...
+        <a
+          target="_blank"
+          *ngFor="let Contact of contact"
+          href="{{ Contact.instagram }}"
+          >Mi Instagram</a
         >
       </p>
     </div>
     <!-- Button LinkedIn-->
     <a
-      href="https://www.linkedin.com/in/leocastillof/"
+      *ngFor="let Contact of contact"
+      href="{{ Contact.linkedin }}"
       target="_blank"
       class="contact-button"
     >

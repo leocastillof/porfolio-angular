@@ -6,64 +6,78 @@
     <h2 class="text-zone-h2 contacted">
       <span class="title_1">Contacto & Créditos</span>
     </h2>
-
+    <button
+      routerLink="/new-contact"
+      *ngIf="isLogged && contact.length === 0"
+      class="contact-button"
+      style="margin: auto; line-height: 40px; font-size: 16px"
+      type="submit"
+    >
+      <div>
+        <span class="bg"></span>
+        <span class="base"></span>
+        <span class="text">Agregar contacto</span>
+      </div>
+    </button>
     <div class="desc-contacted">
-      <br />
-      <div class="text-zone3">
-        <p class="aboutme">
-          ¡Muchas gracias por echar un vistazo a mi Porfolio!
-        </p>
-        <p class="aboutme">
-          Me gustaría dejar un agradecimiento a todas las personas que me han
-          apoyado en este último tiempo. Especialmente estos últimos dos años, a
-          mis amigos, conocidos y familiares que siempre me ayudan a crecer como
-          persona y adquirir nuevos conocimientos...
-        </p>
-        <p class="aboutme">
-          Porfolio realizado con los siguientes lenguajes y herramientas:
-          Angular, HTML, CSS, JavaScript, TypeScript, Java con Spring Boot &
-          SQL. Visual Code Studio, NetBeans IDE, Git, Github.
-        </p>
-        <p class="aboutme">
-          ¡Si quieren saber más de mí, o quieren contactarse conmigo: les dejo
-          mis redes sociales en dónde me mantengo más activo! 😀
-        </p>
+      <div *ngFor="let Contact of contact">
+        <button
+          class="button-edit"
+          *ngIf="isLogged"
+          routerLink="/edit-contact/{{ Contact.id }}"
+        >
+          <i class="fa-solid fa-pen"></i> Editar
+        </button>
+        &nbsp;
+        <button
+          class="button-remove"
+          *ngIf="isLogged"
+          (click)="deleteContact(Contact.id)"
+        >
+          <i class="fa-solid fa-trash"></i> Borrar
+        </button>
+        <p></p>
+        <div class="text-zone3">
+          <p class="aboutme">
+            {{ Contact.description }}
+          </p>
+        </div>
       </div>
     </div>
 
-    <ul>
+    <ul *ngFor="let Contact of contact">
       <li>
-        <a href="https://www.facebook.com/leocastillof" target="_blank"
+        <a href="{{ Contact.facebook }}" target="_blank"
           ><span></span><span></span><span></span><span></span
           ><i class="fa-brands fa-facebook-f"></i
         ></a>
       </li>
       <li>
-        <a href="https://twitter.com/leocastillo_f" target="_blank"
+        <a href="{{ Contact.twitter }}" target="_blank"
           ><span></span><span></span><span></span><span></span
           ><i class="fa-brands fa-twitter"></i
         ></a>
       </li>
       <li>
-        <a href="mailto:leocastillofavierx@gmail.com" target="_blank"
+        <a href="mailto:{{ Contact.google }}" target="_blank"
           ><span></span><span></span><span></span><span></span
           ><i class="fa-brands fa-google"></i
         ></a>
       </li>
       <li>
-        <a href="https://www.linkedin.com/in/leocastillof/" target="_blank"
+        <a href="{{ Contact.linkedin }}" target="_blank"
           ><span></span><span></span><span></span><span></span
           ><i class="fa-brands fa-linkedin"></i
         ></a>
       </li>
       <li>
-        <a href="https://www.instagram.com/leocastillo.f/" target="_blank"
+        <a href="{{ Contact.instagram }}" target="_blank"
           ><span></span><span></span><span></span><span></span
           ><i class="fa-brands fa-instagram"></i
         ></a>
       </li>
       <li>
-        <a href="https://walink.co/a099d7" target="_blank"
+        <a href="{{ Contact.whatsapp }}" target="_blank"
           ><span></span><span></span><span></span><span></span
           ><i class="fa-brands fa-whatsapp"></i
         ></a>

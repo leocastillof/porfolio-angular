@@ -21,9 +21,9 @@
     </nav>
 
     <!-- Social icons -->
-    <ul class="social-icons">
+    <ul class="social-icons" *ngFor="let Contact of contact">
       <li>
-        <a href="https://www.linkedin.com/in/leocastillof/" target="_blank">
+        <a href="{{ Contact.linkedin }}" target="_blank">
           <i class="fa-brands fa-linkedin"></i>
         </a>
       </li>
@@ -33,7 +33,7 @@
         </a>
       </li>
       <li>
-        <a href="https://www.instagram.com/leocastillo.f/" target="_blank">
+        <a href="{{ Contact.instagram }}" target="_blank">
           <i class="fa-brands fa-instagram"></i>
         </a>
       </li>

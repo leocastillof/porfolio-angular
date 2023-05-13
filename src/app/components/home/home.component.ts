@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Aboutme } from 'src/app/model/aboutme';
 import { AboutService } from 'src/app/service/about.service';
 import { TokenService } from 'src/app/service/token.service';
+import { Contact } from 'src/app/model/contact';
+import { ContactService } from 'src/app/service/contact.service';
+import { person } from 'src/app/model/person.module';
+import { PersonService } from 'src/app/service/person.service';
 
 declare var TagCanvas: any;
 
@@ -11,15 +15,20 @@ declare var TagCanvas: any;
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  contact: Contact[] = [];
+  person: person = new person("", "", "");
   aboutme: Aboutme[] = [];
   title = 'porfolio';
 
-  constructor(private aboutmeService: AboutService, private tokenService: TokenService) { }
+  constructor(private aboutmeService: AboutService, private tokenService: TokenService, 
+    public personService: PersonService, private contactService: ContactService) { }
   isLogged = false;
 
   ngOnInit() : void {
+    this.personService.getPerson().subscribe(data => {this.person = data});
     this.registerMouseMoveEvent();
     this.loadAboutMe();
+    this.loadContact();
     if(this.tokenService.getToken())
     {
       this.isLogged = true;
@@ -38,7 +47,14 @@ export class HomeComponent implements OnInit {
       }
     )
   }
-  
+
+  loadContact(): void{
+    this.contactService.lista().subscribe(
+      data =>{
+        this.contact = data;
+      }
+    )
+  }
   ngAfterViewInit() {
     let canvas = document.getElementById('myCanvas');
     let tags = document.getElementById('tags');

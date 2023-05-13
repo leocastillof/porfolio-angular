@@ -19,15 +19,14 @@
 </header>
 
 <!-- Sidebar -->
-<aside class="aside" style="border-color: #302f1c">
+<aside
+  class="aside"
+  style="border-color: #302f1c"
+  *ngFor="let Contact of contact"
+>
   <div class="aside-wrapper">
     <div class="logo-section">
-      <a
-        class="logo"
-        rel="home"
-        href="https://www.linkedin.com/in/leocastillof/"
-        target="_blank"
-      >
+      <a class="logo" rel="home" href="{{ Contact.linkedin }}" target="_blank">
         <img src="assets/img/leocastillo.png" alt="Mi foto de perfil" />
         <span>Leo Castillo</span>
       </a>
@@ -44,7 +43,7 @@
     <!-- social icons -->
     <ul class="social-icons">
       <li>
-        <a href="https://www.linkedin.com/in/leocastillof/" target="_blank">
+        <a href="{{ Contact.linkedin }}" target="_blank">
           <i class="fa-brands fa-linkedin"></i>
         </a>
       </li>
@@ -54,7 +53,7 @@
         </a>
       </li>
       <li>
-        <a href="https://www.instagram.com/leocastillo.f/" target="_blank">
+        <a href="{{ Contact.instagram }}" target="_blank">
           <i class="fa-brands fa-instagram"></i>
         </a>
       </li>
@@ -63,7 +62,7 @@
 </aside>
 
 <!-- Sección uno -->
-<section id="section-home" class="section-home">
+<section id="section-home" class="section-home" *ngFor="let Contact of contact">
   <div class="text-zone">
     <h1>
       Hola, <br />
@@ -77,7 +76,7 @@
     <br />
 
     <!-- Contacto -->
-    <a href="mailto:leocastillofavierx@gmail.com" class="contact-button">
+    <a href="mailto:{{ Contact.google }}" class="contact-button">
       <div>
         <span class="bg"></span>
         <span class="base"></span>
@@ -88,7 +87,7 @@
 </section>
 
 <!-- Sección dos -->
-<section id="section-work">
+<section id="section-work" *ngFor="let Contact of contact">
   <div id="header">
     <h2 class="h2_read animation_02">Mis proyectos & trabajos</h2>
   </div>
@@ -98,18 +97,12 @@
         Dejo alguno de mis proyectos o trabajos hecho con cariño 💛
         <br />
         Si te interesa ver más, dejo mi
-        <a target="_blank" href="https://www.instagram.com/leocastillo.f/"
-          >Instagram</a
-        >
+        <a target="_blank" href="{{ Contact.instagram }}">Instagram</a>
         en dónde suelo subir más contenido
       </p>
     </div>
     <!-- Button LinkedIn-->
-    <a
-      href="https://www.linkedin.com/in/leocastillof/"
-      target="_blank"
-      class="contact-button"
-    >
+    <a href="{{ Contact.linkedin }}" target="_blank" class="contact-button">
       <div>
         <span class="bg"></span>
         <span class="base"></span>
