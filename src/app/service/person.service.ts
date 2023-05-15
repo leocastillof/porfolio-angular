@@ -2,13 +2,14 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Person } from '../model/person';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PersonService {
   // 
-  URL = 'http://localhost:8080/persons/';
+  URL = environment.URL + 'persons/';
   // URL = 'https://porfolio-backend-lnwc.onrender.com/person/';
 
   constructor(private httpClient: HttpClient) { }
