@@ -8,9 +8,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class PersonService {
-  // 
   URL = environment.URL + 'persons/';
-  // URL = 'https://porfolio-backend-lnwc.onrender.com/person/';
 
   constructor(private httpClient: HttpClient) { }
   
