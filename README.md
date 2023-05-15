@@ -1,4 +1,7 @@
 # Porfolio
+Frontend para #YoProgramo4 - By Leo Castillo Realizado con Angular, Typescript, NodeJS, HTML, CSS & JavaScript con Visual Code Studio. Deploy in: https://porfolio-frontend-leo.web.app/home
+
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.4.
 
