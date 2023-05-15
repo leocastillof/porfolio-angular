@@ -1,4 +1,4 @@
 export const environment = {
-    production: true,
+    production: false,
     URL: 'https://porfolio-backend-lnwc.onrender.com/'
   };

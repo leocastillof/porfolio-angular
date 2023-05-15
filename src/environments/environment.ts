@@ -9,6 +9,6 @@ export const environment = {
     messagingSenderId: '170525831719',
     measurementId: 'G-SSWBHRMS3N',
   },
-    production: false,
-    URL: 'http://localhost:8080/'
+    production: true,
+    URL: 'https://porfolio-backend-lnwc.onrender.com/'
 };
