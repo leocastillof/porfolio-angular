@@ -1,5 +1,5 @@
 # Porfolio
-Frontend para #YoProgramo4 - By Leo Castillo Realizado con Angular, Typescript, NodeJS, HTML, CSS & JavaScript con Visual Code Studio. Deploy in: https://porfolio-frontend-leo.web.app/
+Frontend para #YoProgramo4 - By Leo Castillo Realizado con Angular, Typescript, NodeJS, HTML, CSS & JavaScript con Visual Studio Code. Deploy in: https://porfolio-frontend-leo.web.app/
 
 
 
